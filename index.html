@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,700;1,400;1,800&family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+    <script defer src="script.js"></script>
+    <title>Frontend Mentor | Age calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <!-- <style>
+      .attribution {
+        font-size: 11px;
+        number-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style> -->
+  </head>
+  <body>
+    <div class="container">
+      <div class="input">
+        <form action="" class="form">
+          <div class="form__group">
+            <label for="day" class="form__label form__label--day">Day</label>
+            <input
+              type="number"
+              placeholder="DD"
+              class="form__input form__input--day"
+              id="day"
+              min="'1"
+              max="31"
+              required
+            />
+            <span class="error error__day"></span>
+          </div>
+          <div class="form__group">
+            <label for="month" class="form__label form__label--month"
+              >Month</label
+            >
+            <input
+              type="number"
+              placeholder="MM"
+              class="form__input form__input--month"
+              min="'1"
+              max="12"
+              id="month"
+              required
+            />
+            <span class="error error__month"></span>
+          </div>
+
+          <div class="form__group">
+            <label for="year" class="form__label form__label--year">Year</label>
+            <input
+              type="number"
+              placeholder="YYYY"
+              class="form__input form__input--year"
+              id="year"
+              required
+            />
+            <span class="error error__year"></span>
+          </div>
+
+          <button class="button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="46"
+              height="44"
+              viewBox="0 0 46 44"
+            >
+              <g fill="none" stroke="#FFF" stroke-width="2">
+                <path
+                  d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"
+                />
+              </g>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- <div class="button">
+        <div class="line"></div>
+        <button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="46"
+            height="44"
+            viewBox="0 0 46 44"
+          >
+            <g fill="none" stroke="#FFF" stroke-width="2">
+              <path
+                d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"
+              />
+            </g>
+          </svg>
+        </button>
+      </div> -->
+      <div class="result">
+        <div class="result__box">
+          <span class="result__detail result__detail--years">--</span> years
+        </div>
+        <div class="result__box">
+          <span class="result__detail result__detail--months">--</span> months
+        </div>
+        <div class="result__box">
+          <span class="result__detail result__detail--days">--</span> days
+        </div>
+      </div>
+    </div>
+
+    <!-- Day DD Month MM Year YYYY -- years -- months -- days -->
+
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div> -->
+  </body>
+</html>
