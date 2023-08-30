@@ -106,9 +106,10 @@ form.addEventListener("submit", function (e) {
     year > currentDate.getFullYear()
   )
     return;
+  console.log(moment(`${year}/${month}/${date}`, "YYYY/MM/DD"));
 
   //Check if date is valid
-  if (!moment(`${year}/${month}/${day}`, "YYYY/MM/DD").isValid()) {
+  if (!moment(`${year}/${month}/${date}`, "YYYY/MM/DD").isValid()) {
     renderError("day", "Must be a valid date");
     renderError("month", "");
     renderError("year", "");
