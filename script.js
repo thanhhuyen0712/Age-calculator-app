@@ -15,7 +15,6 @@ const yearResult = document.querySelector(".result__detail--years");
 const error = document.querySelector(".error");
 
 const currentDate = new Date();
-const test = new Date(2020, 13, 3);
 // console.log(moment("31.02.2016", "DD.MM.YYYY").isValid());
 
 //Declare functions
@@ -110,8 +109,8 @@ form.addEventListener("submit", function (e) {
   //Check if date is valid
   const inputDate = new Date(year, month - 1, date);
   if (
-    !moment(`${year}/${month}/${date}`, "YYYY/MM/DD").isValid() &&
-    inputDate > currentDate
+    inputDate > currentDate ||
+    !moment(`${year}/${month}/${date}`, "YYYY/MM/DD").isValid()
   ) {
     renderError("day", "Must be a valid date");
     renderError("month", "");
