@@ -48,13 +48,13 @@ const calcDays = function (time) {
 //Event handler
 
 dayInput.addEventListener("input", function (e) {
-  if (dayInput.validity.valueMissing) {
+  if (dayInput.value === "") {
     renderError("day", "This field is required");
   } else {
     hideError("day");
   }
 
-  if (dayInput.validity.rangeUnderflow || dayInput.validity.rangeOverflow) {
+  if (dayInput.value < 1 || dayInput.value > 31) {
     renderError("day", "Must be a valid day");
   } else {
     hideError("day");
@@ -62,13 +62,13 @@ dayInput.addEventListener("input", function (e) {
 });
 
 monthInput.addEventListener("input", function (e) {
-  if (monthInput.validity.valueMissing) {
+  if (monthInput.value === "") {
     renderError("month", "This field is required");
   } else {
     hideError("month");
   }
 
-  if (monthInput.validity.rangeUnderflow || monthInput.validity.rangeOverflow) {
+  if (monthInput.value < 1 || monthInput.value > 12) {
     renderError("month", "Must be a valid month");
   } else {
     hideError("month");
@@ -76,13 +76,13 @@ monthInput.addEventListener("input", function (e) {
 });
 
 yearInput.addEventListener("input", function (e) {
-  if (yearInput.validity.valueMissing) {
+  if (yearInput.value === "") {
     renderError("year", "This field is required");
   } else {
     hideError("year");
   }
 
-  if (yearInput.value > currentDate.getFullYear()) {
+  if (yearInput.value < 1 || yearInput.value > currentDate.getFullYear()) {
     renderError("year", "Must be in the past");
   } else {
     hideError("year");
@@ -92,19 +92,29 @@ yearInput.addEventListener("input", function (e) {
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  //Get date from user
+  //Get data from user and check validity
   const date = +dayInput.value;
   const month = +monthInput.value;
   const year = +yearInput.value;
-  const inputDate = new Date(year, month - 1, date);
+
+  if (
+    date < 1 ||
+    date > 31 ||
+    month < 1 ||
+    month > 12 ||
+    year < 1 ||
+    year > currentDate.getFullYear()
+  )
+    return;
 
   //Check if date is valid
-  if (!moment(`${year}/${month}/${month}`, "YYYY/MM/DD").isValid()) {
+  if (!moment(`${year}/${month}/${day}`, "YYYY/MM/DD").isValid()) {
     renderError("day", "Must be a valid date");
     renderError("month", "");
     renderError("year", "");
   } else {
     document.querySelector(".button").classList.add("button--active");
+    const inputDate = new Date(year, month - 1, date);
     const totalDaysPassed = (currentDate - inputDate) / (1000 * 60 * 60 * 24);
 
     const yearsPassed = calcYears(totalDaysPassed);
