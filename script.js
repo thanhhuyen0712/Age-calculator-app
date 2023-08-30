@@ -106,16 +106,19 @@ form.addEventListener("submit", function (e) {
     year > currentDate.getFullYear()
   )
     return;
-  console.log(moment(`${year}/${month}/${date}`, "YYYY/MM/DD"));
 
   //Check if date is valid
-  if (!moment(`${year}/${month}/${date}`, "YYYY/MM/DD").isValid()) {
+  const inputDate = new Date(year, month - 1, date);
+  if (
+    !moment(`${year}/${month}/${date}`, "YYYY/MM/DD").isValid() &&
+    inputDate > currentDate
+  ) {
     renderError("day", "Must be a valid date");
     renderError("month", "");
     renderError("year", "");
   } else {
     document.querySelector(".button").classList.add("button--active");
-    const inputDate = new Date(year, month - 1, date);
+
     const totalDaysPassed = (currentDate - inputDate) / (1000 * 60 * 60 * 24);
 
     const yearsPassed = calcYears(totalDaysPassed);
