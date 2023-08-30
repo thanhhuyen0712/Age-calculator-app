@@ -150,7 +150,6 @@ span.error {
   }
 
   .container {
-    /* margin: 30rem auto; */
     max-width: 80rem;
   }
 
@@ -173,7 +172,6 @@ span.error {
 
   .container {
     max-width: 65rem;
-    /* margin: 45rem auto; */
     padding: 5rem;
   }
 
@@ -186,11 +184,6 @@ span.error {
 @media (max-width: 34em) {
   .container {
     max-width: 60rem;
-    /* margin: 45rem auto; */
     padding: 2rem;
-  }
-
-  .form__input {
-    /* max-width: 12rem; */
   }
 }
